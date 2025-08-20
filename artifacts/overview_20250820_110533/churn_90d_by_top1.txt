@@ -1,0 +1,13 @@
+   5283 vllm
+   2061 tests
+    354 examples
+    252 csrc
+    177 .buildkite
+    164 benchmarks
+    141 requirements
+     66 docker
+     64 docs
+     48 .github
+     38 tools
+     21 cmake
+      1 .gemini

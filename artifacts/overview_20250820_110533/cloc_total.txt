@@ -1,0 +1,25 @@
+     100 files     200 files     300 files     400 files     500 files     600 files     700 files     800 files     900 files    1000 files    1100 files    1200 files    1300 files    1400 files    1500 files    1600 files    1700 files    1800 files    1900 files    2000 files    2100 files    2200 files    2300 files    2400 files    2500 files    2600 files    2700 files    2703 text files.
+classified 2702 filesDuplicate file check 2702 files (2246 known unique)Unique:      100 files                                          Unique:      200 files                                          Unique:      300 files                                          Unique:      400 files                                          Unique:      500 files                                          Unique:      600 files                                          Unique:      700 files                                          Unique:      800 files                                          Unique:      900 files                                          Unique:     1000 files                                          Unique:     1100 files                                          Unique:     1200 files                                          Unique:     1300 files                                          Unique:     1400 files                                          Unique:     1500 files                                          Unique:     1600 files                                          Unique:     1700 files                                          Unique:     1800 files                                          Unique:     1900 files                                          Unique:     2000 files                                          Unique:     2100 files                                          Unique:     2200 files                                              2667 unique files.                              
+Counting:  100Counting:  200Counting:  300Counting:  400Counting:  500Counting:  600Counting:  700Counting:  800Counting:  900Counting:  1000Counting:  1100Counting:  1200Counting:  1300Counting:  1400Counting:  1500Counting:  1600Counting:  1700Counting:  1800Counting:  1900Counting:  2000Counting:  2100Counting:  2200Counting:  2300Counting:  2400Counting:  2500Counting:  2600     263 files ignored.
+
+github.com/AlDanial/cloc v 1.82  T=32.88 s (78.1 files/s, 20186.5 lines/s)
+-------------------------------------------------------------------------------
+Language                     files          blank        comment           code
+-------------------------------------------------------------------------------
+Python                        1634          74528          65536         358983
+JSON                           374              1              0          55105
+CUDA                           137           5838           4264          35976
+Markdown                       181           5913              0          16184
+C/C++ Header                    57           2653           1855          14067
+C++                             22           1216            758           7583
+Bourne Shell                    67            987            802           4428
+YAML                            79            251            342           3183
+CMake                            5            209            403           1277
+TOML                             5             68             77            357
+Dockerfile                       1             73            142            318
+CSS                              1             22             10            160
+JavaScript                       4             17             23            102
+HTML                             2              2              2             22
+-------------------------------------------------------------------------------
+SUM:                          2569          91778          74214         497745
+-------------------------------------------------------------------------------
