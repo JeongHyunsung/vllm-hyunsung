@@ -168,7 +168,9 @@ csrc/attention/attention_kernels.cu -> csrc/attention/flash_attention.cu -> torc
 - 각 layer 의 구현은 vllm/_custom_ops.py 의 custom CUDA kernel을 이용함
 
 4. CUDA kernel, binding (operation level) 
-- csrc/ 에서 CUDA kernel 구현, torch_bindings.cpp 에서 binding 
+- csrc/ 에서 CUDA kernel 구현, torch_bindings.cpp 에서 binding
+- python 에서 paged_attention_v1 호출하면, 분기하여 적절한 paged_attention_kernel 을 넘겨줌.
+- 각 kernel 은 병렬화된 CUDA 코드로 구현됨
 
 ### csrc/attention/
 
