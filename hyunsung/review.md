@@ -22,7 +22,7 @@
 |logs/|실행/테스트/운영 중 생성되는 로그 파일 저장.|시스템/애플리케이션 로그, 에러/디버그/운영 기록, 분석용 로그 데이터.|1|-|Text|-|
 
 ### Summary 
-- Not the simple reproducible research codebase, but highly production-oriented project with strong CI/CD, testing, multi-model, multiple entrypoint 
+- Highly production-oriented project with strong CI/CD, testing, multi-model, multiple entrypoint 
 
 - Core 1 : LLM inference core with Scheduling engine and FastAPI provider (vllm/)
     - A. ** FRONTEND (Service level) **
@@ -146,16 +146,34 @@
 
 vllm/engine/llm_engine -> vllm/engine/scheduler -> vllm/core/
 
-vllm/model_executor/model_executor.py -> vllm/layers/ -> vllm/attention/
+vllm/model_executor/model_executor.py -> vllm/model_executor/layers/ -> vllm/attention/
 
 vllm/compilation
 
 csrc/attention/attention_kernels.cu -> csrc/attention/flash_attention.cu -> torch_bindings.cpp
 
+### Overall flow 
+1. Entrypoint (frontend, service level)
+- vllm/entrypoints/api_server.py 에서 fastAPI 서버 실행
+- 유저가 /generate 등 endpoint 로 POST 요청, 서버는 내부적으로 AsyncLLMEngine 에게 요청 전달 
+
+2. Engine (request level)
+- vllm/engine/async_llm_engine.py 에서 LLM engine 정의
+- AsyncLLMEngine.generate 호출 req tracker 에 기록, 비동기 generator 반환
+- 매 step 마다 scheduler 는 req tracker 를 참조, 스케줄링 결과에 따라 실행 가능한 배치로 묶어 executor 에 전달.
+
+3. Executor (sequence level) 
+- vllm/executor/executor_base.py 에서 vllm/model_executor/ 에 정의된 layer 들을 이용하여 실제 모델 inference 실행
+- vllm/attention/ 에 attention 관련 layer, backend option 이 구현되어 있음. 
+- 각 layer 의 구현은 vllm/_custom_ops.py 의 custom CUDA kernel을 이용함
+
+4. CUDA kernel, binding (operation level) 
+- csrc/ 에서 CUDA kernel 구현, torch_bindings.cpp 에서 binding 
+
+### csrc/attention/
 
 # Key experiments (with small size) 
 
-## vllm/engine/llm_engine.py 
 
 
 

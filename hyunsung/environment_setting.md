@@ -1,14 +1,14 @@
 # 0. Source code fork, clone + Basic package 
-(in Ubuntu 20.04)
+(in Ubuntu 22.04)
 sudo apt update
 
-sudo apt install python3.9 python3.9-venv python3.9-dev cmake build-essential git
+sudo apt install python3.10 python3.10-venv python3.10-dev cmake build-essential git
 
 # 1. Virtual environment setting
-python3.9 -m venv vllm-env
+python3.10 -m venv vllm-env
 source vllm-env/bin/activate
 
-# 2. torch install with corrent CUDA version
+# 2. torch install with correct CUDA version
 pip install --upgrade pip
 pip install torch --index-url https://download.pytorch.org/whl/cu118
 
