@@ -17,9 +17,12 @@
  * limitations under the License.
  */
 
-// 1. Entrypoint (paged_attention_v1) which can be called from the python, 
-// 2. In paged_attention_v1 function, It branches based on variables, and select the appropriate launcher
-// 3. Launcher a. initialize shared memory, b. launch kernel (paged_attention_v1_kernel) 
+// 1. Paged attention function
+// Entrypoint (paged_attention_v1) which can be called from the python, 
+// 2. Launch function
+// In paged_attention_v1 function, It branches based on variables, and select the appropriate launcher
+// 3. Launcher Macro
+// Launcher a. initialize shared memory, b. launch kernel (paged_attention_v1_kernel) 
 
 
 #include "attention_kernels.cuh"

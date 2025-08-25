@@ -17,6 +17,16 @@
  * limitations under the License.
  */
 
+// 1. Block sum function
+// Computes the sum of elements in a block.
+// 2. Paged attention kernel
+// single thread block is responsible to calculation of Attention(Q, K, V) with (sequence, head [,partition])
+// Index, Range configuration, Block mapping -> Load Q (DRAM -> shared memory) ->
+// From block table, load K and V -> Compute QK, masking -> Softmax -> Compute output 
+
+
+
+
 #include <torch/all.h>
 #include <ATen/cuda/CUDAContext.h>
 #include <c10/cuda/CUDAGuard.h>

@@ -156,6 +156,7 @@ csrc/attention/attention_kernels.cu -> csrc/attention/flash_attention.cu -> torc
 1. Entrypoint (frontend, service level)
 - vllm/entrypoints/api_server.py 에서 fastAPI 서버 실행
 - 유저가 /generate 등 endpoint 로 POST 요청, 서버는 내부적으로 AsyncLLMEngine 에게 요청 전달 
+- vllm/entrypoints/llm.py 도 llmEngine 에게 요청 전달
 
 2. Engine (request level)
 - vllm/engine/async_llm_engine.py 에서 LLM engine 정의
@@ -172,7 +173,8 @@ csrc/attention/attention_kernels.cu -> csrc/attention/flash_attention.cu -> torc
 - python 에서 paged_attention_v1 호출하면, 분기하여 적절한 paged_attention_kernel 을 넘겨줌.
 - 각 kernel 은 병렬화된 CUDA 코드로 구현됨
 
-### csrc/attention/
+### csrc/attention/paged_attention_v1.cu
+### csrc/attention/attention_kernels.cuh
 
 # Key experiments (with small size) 
 
